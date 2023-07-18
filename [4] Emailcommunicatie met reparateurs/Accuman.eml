@@ -1,0 +1,217 @@
+Delivered-To: marcoxmeijer@gmail.com
+Received: by 2002:a05:7011:108b:b0:36e:6b0c:7d55 with SMTP id mv11csp1920639mdb;
+        Sat, 15 Jul 2023 06:45:23 -0700 (PDT)
+X-Received: by 2002:a2e:9252:0:b0:2b6:e296:bd68 with SMTP id v18-20020a2e9252000000b002b6e296bd68mr5739940ljg.35.1689428723122;
+        Sat, 15 Jul 2023 06:45:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1689428723; cv=none;
+        d=google.com; s=arc-20160816;
+        b=hPL4+QfA9I8A51JfRrm9bCoaQBf6zMVemj2VyMXBmq46gGko2xMvNHt68lWcvnwlJj
+         gEfB9OqZhBX+w9StA5G/G3imFjLX9/wlPeAki9c6rAJWJOywTMYsdN5WswmZF6z4z7LJ
+         0XA+lZJvyApzTOePsDw9fOQxZ0gMYG4ibkcBXIPh9HMMBZyCrUacKs9r4Dvj//E0Fplp
+         LmHA4voCFsL7ekApGY0XoddYUx5xrXKqJZt2zzXFc+5xjGdZLcqRZgY0zaMeuNWl39Q0
+         vbD9HrZL4Vsj+fR0MjpjSbTWqOZA+9RS3Of/wDahcdmkm0CSwdl5NAgY30QajCPDdVv6
+         DFog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version;
+        bh=zKXMdrqlUJGMfXUWZBkg5sz46b+18zAw2vJX5X0nb98=;
+        fh=AvA4rPr84TQNI6U6nqIXcOYSWqztW9j54sJHUH2RV4k=;
+        b=ITeOwmJWwWUwrBjaOco6gBufiGHHeRQKVAcf4B8odJhUIZW4vfMh/AVeZeInSqun3i
+         xhoIVnJNh3sP9AWTmRcfudSM7v9ILPiFFQkp7RyuhrbvufPLzuZ6VtcnCpDOc4Icly7t
+         uE2sKXyr1MlF3Wj/kjQZ0F1UlmGobFovGKaTkrM1qC0DX949s24p2Yr2v5VEpXB5GQ5Z
+         EndXILKrbtYJMDZvclCRnt3fMcbA5wIRfxHP23FGfGxUWUuV9UCpgzERkDU16R2kOl6j
+         XBo/TpHFiie26LVweCKTBWxXOJJmGXflW1gmlHnov9fFKcVrlA3m8MO464R08qm+3MsG
+         URHQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of puenwouter@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=puenwouter@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=accuman.nl
+Return-Path: <puenwouter@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id e2-20020a05651c038200b002b6981dfad4sor5183410ljp.0.2023.07.15.06.45.22
+        for <marcoxmeijer@gmail.com>
+        (Google Transport Security);
+        Sat, 15 Jul 2023 06:45:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of puenwouter@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of puenwouter@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=puenwouter@gmail.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=accuman.nl
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1689428722; x=1692020722;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zKXMdrqlUJGMfXUWZBkg5sz46b+18zAw2vJX5X0nb98=;
+        b=S/A23aQn/L7Cs78+MQyT0pCTgrzOwiDAVHfKfCKiTUK3jkTUDn3Ft04swam7tQtEpF
+         scPPDPrpozF4Gntl2Qtx87Sq3DH+pVN7SnstQS+dZslDG/83y0l438NU9X2DUpNe5K3g
+         NXwrV1RlmdoP43YrbPofhg0RFQw/eD12PUZLaMRBWIzZVvnyLBNU3O1iH+7Ha8rxtltR
+         L7VZyrPo9Oll0CT8FALi0eOCphaFKdzzw+Xvc+MHkkH3QDZ6q90GAD86uT2fmM9pkvMV
+         LAWymSH1xsLvyyeDl8VjzMulV2AYqjNhBcm0mje8VJ5NKapL3IHY+8bNc2HG/zS9sLZl
+         4z9g==
+X-Gm-Message-State: ABy/qLZmAz8iKvTBHbQZg6dCB4rx9c5azpV22ugXbuHVbrC+HWJTZYbe
+	F4+7QUCz7/i6iR608dn3Wxn7eMNHVV42VHBW0v+Sia9N
+X-Google-Smtp-Source: APBJJlFe4SinJxOFrXIdEMw9uu+j+FKXAP+Jz3xDozpKDlLaEwsAUs3QjIfjyCeFp8PMjpPjVywXU+I/4/fl0b+DsGw=
+X-Received: by 2002:a05:6512:1141:b0:4f8:7772:3dfd with SMTP id
+ m1-20020a056512114100b004f877723dfdmr5042896lfg.11.1689428722050; Sat, 15 Jul
+ 2023 06:45:22 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAF9eFEO_5PYb7j3GU1uQdarC-P2saxZs-zDoLUQRVyXN4JJFnA@mail.gmail.com>
+ <CAOAAzdvfDJN5T1gyt4NZXsH3TEVAMROkhwj1MNNWWV1siMcDyQ@mail.gmail.com> <CAF9eFEMNu5JX2jom6U692RzupLQT_MMGD=3jY7-vwX=OEG+Y+Q@mail.gmail.com>
+In-Reply-To: <CAF9eFEMNu5JX2jom6U692RzupLQT_MMGD=3jY7-vwX=OEG+Y+Q@mail.gmail.com>
+From: "www.Accuman.nl" <info@accuman.nl>
+Date: Sat, 15 Jul 2023 15:45:11 +0200
+Message-ID: <CAOAAzdsyGF4g-N0C_WAgcfRptF1BD7Yapmzfz-NKu+v3GhvM1g@mail.gmail.com>
+Subject: Re: Uw mening over Bafang
+To: Marco Meijer <marcoxmeijer@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000d9eb05060086c666"
+
+--000000000000d9eb05060086c666
+Content-Type: text/plain; charset="UTF-8"
+
+Ja dat klopt, nieuwe lader andere plug die wel goed is.
+Je wil niet weten hoeveel accu s en laders en vervangen moeten worden
+door dit probleem, we krijgen stapels accu s binnen soms niet ouder dan 3
+weken
+en met de aankoop van een nieuw Bafang lader werkt alles weer voor 89 euro
+maar ik heb hier klanten die al drie laders gebruikt hebben en het dan pas
+bij ons laten ombouwen
+Met vriendelijke groet,
+
+Wouter Oosterbaan Martinius
+www.Accuman.nl
+
+Info@accuman.nl
+023-5247060
+
+De Ruijterweg 22zw
+2014AV Haarlem
+
+
+Op za 15 jul 2023 om 15:40 schreef Marco Meijer <marcoxmeijer@gmail.com>:
+
+> Hallo Wouter,
+>
+> Bedankt voor het antwoord. Je zegt dat dit wordt opgelost met een goede
+> lader en een nieuwe plug, en dat het voor altijd dan is opgelost. Bedoel je
+> dan dat er een ander ontwerp plug op komt dan wat Bafang gebruikt? Een die
+> beter ontworpen is? Dat zou wel heel interessant zijn.
+>
+> P.S. ik ben zelf klant bij Fietsenwinkel.nl, maar daar ben ik nu dus niet
+> zo blij mee.
+>
+> Met vriendelijke groet,
+> Marco Meijer
+>
+>
+> Op za 15 jul. 2023 15:35 schreef www.Accuman.nl <info@accuman.nl>:
+>
+>> beste Marco
+>>
+>> het bekende probleem, en komt regelmatig bij ons binnen
+>> Maar ook jouw fietsenmaker is doorgaans een ook klant bij mij.
+>> en dat maakt het moeilijk. Je hebt gelijk waardeloos gemaakt en nooit
+>> garantie
+>> We lossen dit op met een goede lader en nieuwe plug, probleem voor altijd
+>> opgelost
+>> Met vriendelijke groet,
+>>
+>> Wouter Oosterbaan Martinius
+>> www.Accuman.nl
+>>
+>> Info@accuman.nl
+>> 023-5247060
+>>
+>> De Ruijterweg 22zw
+>> 2014AV Haarlem
+>>
+>>
+>> Op za 15 jul 2023 om 15:15 schreef Marco Meijer <marcoxmeijer@gmail.com>:
+>>
+>>> Goedendag,
+>>>
+>>> Ik heb momenteel een conflict met mijn fietswinkel over de garantie van
+>>> mijn Bafang accu en oplader. De pin van de lader is afgebroken en in de
+>>> accu blijven zitten. De fietswinkel zegt dat "een pin niet zomaar afbreekt,
+>>> en het dus een gebruikersfout is", en weigeren daarom mijn garantie.
+>>>
+>>> Nu hoorde ik via via dat u een tamelijk gepeperde mening over Bafang
+>>> heeft, en ik begreep zelfs dat u om deze reden helemaal geen Bafang meer
+>>> verkoopt.
+>>>
+>>> Ik zou u uitermate dankbaar zijn als u uw mening over Bafang en over het
+>>> antwoord van mijn fietswinkel in een antwoord op mijn email zou kunnen
+>>> zetten. Hoe meer details hoe beter. Dit zou mij enorm kunnen helpen als
+>>> getuigenverklaring/affadavit bij de kantonrechter.
+>>>
+>>> Met vriendelijke groet,
+>>> Marco Meijer
+>>>
+>>
+
+--000000000000d9eb05060086c666
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Ja dat klopt, nieuwe lader andere plug die wel goed is.<di=
+v>Je wil niet weten hoeveel accu s en laders en vervangen moeten worden</di=
+v><div>door dit probleem, we krijgen stapels accu s binnen soms niet ouder =
+dan 3 weken</div><div>en met de aankoop van een nieuw Bafang lader werkt al=
+les weer voor 89 euro</div><div>maar ik heb hier klanten die al drie laders=
+ gebruikt hebben en het dan pas bij ons laten ombouwen<br clear=3D"all"><di=
+v><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_signat=
+ure"><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Met vriendelijke groet,<br=
+><br>Wouter Oosterbaan Martinius<br><span style=3D"color:rgb(0,0,255)"><a h=
+ref=3D"http://www.Accuman.nl" target=3D"_blank">www.Accuman.nl</a><br><br><=
+a href=3D"mailto:Info@accuman.nl" target=3D"_blank">Info@accuman.nl</a></sp=
+an><br>023-5247060<br><br>De Ruijterweg 22zw<br>2014AV Haarlem</div></div><=
+/div></div></div></div><br></div></div><br><div class=3D"gmail_quote"><div =
+dir=3D"ltr" class=3D"gmail_attr">Op za 15 jul 2023 om 15:40 schreef Marco M=
+eijer &lt;<a href=3D"mailto:marcoxmeijer@gmail.com">marcoxmeijer@gmail.com<=
+/a>&gt;:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div di=
+r=3D"auto"><div>Hallo Wouter,<div dir=3D"auto"><br></div><div dir=3D"auto">=
+Bedankt voor het antwoord. Je zegt dat dit wordt opgelost met een goede lad=
+er en een nieuwe plug, en dat het voor altijd dan is opgelost. Bedoel je da=
+n dat er een ander ontwerp plug op komt dan wat Bafang gebruikt? Een die be=
+ter ontworpen is? Dat zou wel heel interessant zijn.=C2=A0</div><div dir=3D=
+"auto"><br></div><div dir=3D"auto">P.S. ik ben zelf klant bij Fietsenwinkel=
+.nl, maar daar ben ik nu dus niet zo blij mee.=C2=A0</div><div dir=3D"auto"=
+><br></div><div dir=3D"auto">Met vriendelijke groet,=C2=A0</div><div dir=3D=
+"auto">Marco Meijer=C2=A0</div><br><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">Op za 15 jul. 2023 15:35 schreef <a href=3D"h=
+ttp://www.Accuman.nl" target=3D"_blank">www.Accuman.nl</a> &lt;<a href=3D"m=
+ailto:info@accuman.nl" target=3D"_blank">info@accuman.nl</a>&gt;:<br></div>=
+<blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-=
+left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">beste Ma=
+rco<div><br></div><div>het bekende probleem, en komt regelmatig bij ons bin=
+nen</div><div>Maar ook jouw fietsenmaker is doorgaans een ook klant bij mij=
+.</div><div>en dat maakt het moeilijk. Je hebt gelijk waardeloos gemaakt en=
+ nooit garantie</div><div>We lossen dit op met een goede lader en nieuwe pl=
+ug, probleem voor altijd opgelost<br clear=3D"all"><div><div dir=3D"ltr" cl=
+ass=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Met vri=
+endelijke groet,<br><br>Wouter Oosterbaan Martinius<br><span style=3D"color=
+:rgb(0,0,255)"><a href=3D"http://www.Accuman.nl" rel=3D"noreferrer" target=
+=3D"_blank">www.Accuman.nl</a><br><br><a href=3D"mailto:Info@accuman.nl" re=
+l=3D"noreferrer" target=3D"_blank">Info@accuman.nl</a></span><br>023-524706=
+0<br><br>De Ruijterweg 22zw<br>2014AV Haarlem</div></div></div></div></div>=
+</div><br></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">Op za 15 jul 2023 om 15:15 schreef Marco Meijer &lt;<a href=
+=3D"mailto:marcoxmeijer@gmail.com" rel=3D"noreferrer" target=3D"_blank">mar=
+coxmeijer@gmail.com</a>&gt;:<br></div><blockquote class=3D"gmail_quote" sty=
+le=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);paddi=
+ng-left:1ex"><div dir=3D"auto">Goedendag,<div dir=3D"auto"><br></div><div d=
+ir=3D"auto">Ik heb momenteel een conflict met mijn fietswinkel over de gara=
+ntie van mijn Bafang accu en oplader. De pin van de lader is afgebroken en =
+in de accu blijven zitten. De fietswinkel zegt dat &quot;een pin niet zomaa=
+r afbreekt, en het dus een gebruikersfout is&quot;, en weigeren daarom mijn=
+ garantie.=C2=A0</div><div dir=3D"auto"><br></div><div dir=3D"auto">Nu hoor=
+de ik via via dat u een tamelijk gepeperde mening over Bafang heeft, en ik =
+begreep zelfs dat u om deze reden helemaal geen Bafang meer verkoopt.</div>=
+<div dir=3D"auto"><br></div><div dir=3D"auto">Ik zou u uitermate dankbaar z=
+ijn als u uw mening over Bafang en over het antwoord van mijn fietswinkel i=
+n een antwoord op mijn email zou kunnen zetten. Hoe meer details hoe beter.=
+ Dit zou mij enorm kunnen helpen als getuigenverklaring/affadavit bij de ka=
+ntonrechter.</div><div dir=3D"auto"><br></div><div dir=3D"auto">Met vriende=
+lijke groet,=C2=A0</div><div dir=3D"auto">Marco Meijer=C2=A0</div></div>
+</blockquote></div>
+</blockquote></div></div></div>
+</blockquote></div>
+
+--000000000000d9eb05060086c666--

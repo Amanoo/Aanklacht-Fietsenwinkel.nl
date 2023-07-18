@@ -1,0 +1,572 @@
+Delivered-To: marcoxmeijer@gmail.com
+Received: by 2002:a05:7011:c2a6:b0:361:9d08:974b with SMTP id jt38csp2596138mdc;
+        Mon, 12 Jun 2023 02:28:22 -0700 (PDT)
+X-Google-Smtp-Source: ACHHUZ5gwJDICCE2iKpckSRPlEbMQ32gyI12wiSy4ghjTxvOn/oiTy8tapF77a24zR76EOg1Qm0a
+X-Received: by 2002:a81:69d5:0:b0:559:eae4:9671 with SMTP id e204-20020a8169d5000000b00559eae49671mr10046435ywc.14.1686562102608;
+        Mon, 12 Jun 2023 02:28:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1686562102; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QZPiLZRtn60k6vLohf2qZAfLbVBg0V54KglTKGlSn78OR/l+dkcLrXmVY2hrq7BjWg
+         wr7eVkVjPg+mZBxleYJ8i8PzTuNaCaBthga5pzdtEFsVjtTdmixUWqwBZEDQM3PHTmt9
+         ygV8bx1ZK/GWzTpdGbfmFzIlDo2duBsfJ6gSbxdKwqou9cNcVEcI55q20ivLh/DnRzuv
+         NUQs93GefMSE/Hk2UdtTjPtbsxnAsr6jMMsK0zUwwgZcxuuw9bl/1HYQr/VH2K0kkhiX
+         aHcUSfSbu7lGuqeYrZin10VYxkcfYicjJdFFjZcsMjngFYzxoYb0zxUhcUmyC5Zxb8N5
+         3Nig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:message-id:mime-version:date:subject:from:dkim-signature;
+        bh=0Qvm9XcxCbcAQT6qM/lMU6rKX6FFHDv36CJpLgo6vHI=;
+        b=0NSNyv4MStD8AcKg7T6VeSr5/CRRFM+YWYFI0oQhvO/jEUTSn/8uyF9eg6BFz7qhGb
+         JUic8epirj3hOk70KdtA/q2UtM5wbsumzln6dhPxH89mjct0AtW+PujiV5z7CcPydbAv
+         S90djUTOdnXgsN4ES1QjMcaOS2X1sqHPCuHHgLIvQQlj0GZjrhmPrpFku31uTyy1dMK7
+         Zte/p54/9x6Ql8V+fE80SIRSbh6kooLbD4UmbWB6RH4UlzAtFj3Y0AQsCHcOhV1ZpBlS
+         PIYfh5uCV2Mm4L+IXFlMVUCtut1dD2lCjGuquDij1ojadLg5+KAVNH60ljb3WWNdR/tO
+         b2hg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@sendgrid.net header.s=smtpapi header.b=CQ24UcrZ;
+       spf=pass (google.com: domain of info@fietsenwinkel.nl designates 168.245.69.4 as permitted sender) smtp.mailfrom=info@fietsenwinkel.nl;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fietsenwinkel.nl
+Return-Path: <info@fietsenwinkel.nl>
+Received: from o15.ptr4370.robinhq.com (o15.ptr4370.robinhq.com. [168.245.69.4])
+        by mx.google.com with ESMTPS id z63-20020a0dd742000000b00545957642d5si2912173ywd.99.2023.06.12.02.28.22
+        for <marcoxmeijer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 Jun 2023 02:28:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info@fietsenwinkel.nl designates 168.245.69.4 as permitted sender) client-ip=168.245.69.4;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@sendgrid.net header.s=smtpapi header.b=CQ24UcrZ;
+       spf=pass (google.com: domain of info@fietsenwinkel.nl designates 168.245.69.4 as permitted sender) smtp.mailfrom=info@fietsenwinkel.nl;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fietsenwinkel.nl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.net;
+	h=from:subject:mime-version:content-type:x-feedback-id:to:cc:
+	content-type:from:subject:to;
+	s=smtpapi; bh=0Qvm9XcxCbcAQT6qM/lMU6rKX6FFHDv36CJpLgo6vHI=;
+	b=CQ24UcrZuBVmlInhcLGv7GCnJx2F16CV0bTe8xR63yGGRClltyR1I7GY4naXbNB46CMF
+	nR1AviL6bvyYdaY9z5v4mzNPow+4TnR/+FhrRp6ZBGwRPhGhHBXQzn2Wx8HgqPe3/HNtLD
+	0uQTYGWQSD19hizjOpPEtaBF6bORz6+10=
+Received: by filterdrecv-68f649d54f-pzs9w with SMTP id filterdrecv-68f649d54f-pzs9w-1-6486E535-23
+        2023-06-12 09:28:21.617880527 +0000 UTC m=+2800342.018858105
+Received: from [10.0.0.4] (unknown)
+	by geopod-ismtpd-6 (SG) with ESMTP
+	id ntM2QXEdSA-QL79bkDw2ZA
+	for <marcoxmeijer@gmail.com>;
+	Mon, 12 Jun 2023 09:28:21.426 +0000 (UTC)
+From: "Klantenservice Fietsenwinkel.nl" <info@fietsenwinkel.nl>
+Subject: Formeel verzoek voor garantieservice met betrekking tot elektrische
+ fietslader en accu
+Date: Mon, 12 Jun 2023 09:28:21 +0000 (UTC)
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="=-/ORZaVyTB9M+7nClCjwkdg=="
+Message-ID: <ntM2QXEdSA-QL79bkDw2ZA@geopod-ismtpd-6>
+X-Feedback-ID: 203620:SG
+X-SG-EID: 
+ =?us-ascii?Q?ZAUSuK+WVRklxpwpvD29w2tRpYDDCutkhioVAbjXr00uePSBMN6AND8TyrEn7e?=
+ =?us-ascii?Q?9vwiKeycApsZ54eTcz7M8ZlAVfMVdqB5attG+JS?=
+ =?us-ascii?Q?XNvOBPLCt8wi3WqYfHw8NTfNcFB5XjmamKH+j=2F7?=
+ =?us-ascii?Q?V8PROkiEZt2CMQ7BRB7HgT9oGBvuhCqhsHtEE40?=
+ =?us-ascii?Q?aXGB62KhLP8k2ZbSeJcQf5d4Iv4KEpjlBiWGf9X?=
+ =?us-ascii?Q?FfiZ49K1a9ir5uB3E=2FybrbaSENIw2YwiCL9X6sm?=
+ =?us-ascii?Q?7KLPcUE9w2bz6xBL+6Tzg=3D=3D?=
+To: Marco Meijer <marcoxmeijer@gmail.com>
+X-Entity-ID: vpsdDrWgesuMxyF/cujCaw==
+
+--=-/ORZaVyTB9M+7nClCjwkdg==
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Beste meneer Meijer,
+
+
+Bedankt voor uw bericht.
+
+Wij gaan niet akkoord met de vergoeding, onze monteurs zijn de experts bij =
+ons en geven aan dat dit gebruikersschade is geweest. Hier zullen wij ons d=
+an ook aan houden.
+
+Excuses voor het ongemak.
+
+
+Met vriendelijke groet,
+
+Sabir
+KS | Info
+
+
+------------------------------
+
+Van: Marco Meijer
+Aan: KS | Info, info@fietsenwinkel.nl
+Datum: 08 jun 15:36
+Onderwerp: Re: Formeel verzoek voor garantieservice met betrekking tot elek=
+trische fietslader en accu
+
+Geachte heer/mevrouw,
+
+Ik heb inmiddels contact gehad met het juridisch loket. Zij hebben mij
+geadviseerd om nogmaals via deze weg contact met jullie te zoeken om er
+samen uit te komen. Mocht dit niet lukken dan ben ik genoodzaakt om
+juridische stappen te ondernemen.
+
+Ook gaf het juridisch loket aan dat de bewijslast van mijn schuld bij
+jullie ligt omdat het product kapot is gegaan. Zie hiervoor de informatie
+in deze link.
+
+Ondanks
+mijn eerdere verzoeken hiertoe hebben jullie nog niet aan deze wettelijke
+verplichting voldaan. Ik blijf erbij dat de schuld niet bij mij ligt
+aangezien ik enkel de apparatuur heb gebruikt op de manier zoals beschreven
+in de handleiding.
+
+Aangezien ik mijn fiets dagelijks gebruik voor mijn werk en jullie niet
+doortastend hebben gehandeld op mijn voorgaande mails was ik genoodzaakt om
+een nieuwe accu en oplader aan te schaffen samen ter waarde van =E2=82=AC57=
+8. Ik
+stuur bewijs van deze aankoop mee met deze email.
+
+Ik verzoek u om binnen 14 dagen mijn schade te vergoeden. U kunt het bedrag
+overmaken op rekeningnummer NL89RABO0102058652 op naam van M.L. Meijer.
+
+Graag ontvang ik binnen twee weken uw reactie.
+
+Alvast bedankt.
+
+Met vriendelijke groet,
+
+Marco Meijer
+
+------------------------------
+
+Van: KS | Info
+Aan: Marco Meijer
+Datum: 25 mei 15:16
+Onderwerp: Formeel verzoek voor garantieservice met betrekking tot elektris=
+che fietslader en accu
+
+Beste meneer Meijer,
+
+
+Bedankt voor uw bericht.
+
+Een pin breekt niet uit zichzelf, deze komt er ook niet uit zichzelf terech=
+t.
+Uw mening hieruit is is dat het product uit zichzelf gebroken is, onze mont=
+eurs vinden van niet.
+Wij hanteren hierbij de expertise van onze monteurs.
+
+
+Nogmaals gaan wij niet akkoord met het voorstel, ook de 10% kunnen wij niet=
+ meer aanbieden omdat dit om een gebruikersfout gaat.
+
+
+------------------------------
+
+Van: Marco Meijer
+Aan: KS | Info, info@fietsenwinkel.nl
+Datum: 25 mei 15:06
+Onderwerp: Re: Formeel verzoek voor garantieservice met betrekking tot elek=
+trische fietslader en accu
+
+Beste Fietsenwinkel.nl,
+
+Zojuist heb ik contact gehad met de adviesafdeling van de Consumentenbond.
+Zij zijn het met mij eens dat deze kwestie onder garantie dient te vallen,
+en hebben mij advies gegeven in deze correspondentie.
+
+Op basis van de wettelijke garantie, heb ik recht op kostenloze reparatie
+of vervanging, tenzij u mij kan aantonen dat ik dit zelf heb veroorzaakt
+(per artikel 7:18a lid 2 BW en artikel 7:21 BW).
+
+Naar wat ik via Makkabikes heb vernomen, zou uw oplossing zijn om zowel de
+oplader als de accu te vervangen. Een accu die nota bene in goede staat is
+en waaruit enkel de afgebroken pin dient te worden verwijderd. Met oog op
+mijn wettelijke rechten, is het geen acceptabele oplossing om mij voor twee
+nieuwe producten te laten betalen.
+
+In de vorige correspondentie heeft u ook niet kunnen bewijzen dat ik het
+probleem zelf zou hebben veroorzaakt. Daarom wil ik dat dit kosteloos wordt
+gerepareerd of vervangen.
+
+Met vriendelijke groet,
+Marco Meijer
+
+------------------------------
+
+Van: KS | Info
+Aan: Marco Meijer
+Datum: 25 mei 12:24
+Onderwerp: Formeel verzoek voor garantieservice met betrekking tot elektris=
+che fietslader en accu
+
+Beste meneer Meijer,
+
+
+Bedankt voor uw bericht.
+
+Uw frustratie is terecht, ook ik zou begrijpen dat dit een erg vervelende s=
+ituatie is. Helaas gebeuren ongelukken erg vaak, ook als dit niet de bedoel=
+ing is geweest.
+
+Onze monteurs geven aan dat dit onder gebruikssporen valt, dit zullen wij d=
+us ook niet kosteloos vergoeden.
+Wel willen wij mee denken in een coulance hieruit, mocht u de reparatie toc=
+h bij ons laten voeren dan willen wij 10% op eigen kosten nemen.
+
+Verwachtend u hiermee geholpen te hebben.
+
+
+
+------------------------------
+
+Van: Marco Meijer
+Aan: KS | Info, info@fietsenwinkel.nl
+Datum: 23 mei 23:28
+Onderwerp: Formeel verzoek voor garantieservice met betrekking tot elektris=
+che fietslader en accu
+
+Beste Fietsenwinkel.nl,
+
+Met hulp van de Consumentenbond stuur ik u deze brief. Ik schrijf u om uw h=
+ulp te vragen met betrekking tot een kwestie rondom mijn elektrische fiets,=
+ die ik ongeveer 10 maanden geleden bij uw winkel heb gekocht.
+
+Onlangs heeft de oplader van mijn fiets een mechanische falen gehad waarbij=
+ de pin in de connector afbrak en vast kwam te zitten in de accu. Ondanks h=
+et feit dat de accu nog steeds functioneel is, is het oplaadproces onmogeli=
+jk geworden vanwege de vastzittende pin. Ik heb de oplader en accu ter verz=
+ending naar Makkabikes gebracht. De feedback die ik echter van Makkabikes o=
+ntving, gaf aan dat Fietsenwinkel.nl van mening is dat zowel de oplader als=
+ de accu volledig vervangen dienen te worden en dat deze situatie buiten de=
+ garantie valt.
+
+Ik moet mijn verbazing uiten over dit standpunt. Gezien de aard van het ont=
+werp van de oplader - een cilinder met een pin die alleen recht kan worden =
+ingebracht of verwijderd, en dus niet onjuist gebruikt kan worden - lijkt h=
+et hoogst onwaarschijnlijk dat dit falen het gevolg kon zijn van oneigenlij=
+k gebruik. Ik ben ook altijd zeer zuinig geweest op de oplader en accu. De =
+oplader werd veilig bewaard in een op maat gemaakte elektrakast die stevig =
+is bevestigd in mijn fietsenberging, waarbij de oplaadkabel via een wartel =
+buiten de kast werd geleid. Zodoende vormde dit een soort oplaadstation waa=
+rbij de oplader niet gemakkelijk kon worden verplaatst of beschadigd. De fi=
+ets zelf heeft een eigen fietsenrek naast het oplaadstation, zodat ook deze=
+ tijdens het laden stevig staat. Dit alles toont aan dat ik uiterst zorgvul=
+dig met mijn fiets en oplader omga.
+
+Gezien deze feiten, geloof ik dat de pin van de oplader mogelijk vanaf het =
+begin een productiefout had, wat uiteindelijk tot het voortijdig falen erva=
+n heeft geleid onder normaal gebruik. Naar mijn mening is dit geen geval va=
+n normale slijtage. Ondanks de kapotte oplader blijft de accu functioneel e=
+n vertoont geen significante tekenen van slijtage. In principe zou het vold=
+oende moeten zijn om de pin uit de oplaadpoort van de accu te verwijderen. =
+Ik heb de fiets niet dagelijks gebruikt, noch heb ik de accu vaak opgeladen=
+ wanneer deze boven de driekwart vol was. Gezien deze gebruiksvoorwaarden, =
+lijkt het redelijk om aan te nemen dat de oplader onder normale omstandighe=
+den minstens twee jaar zou moeten meegaan.
+
+Volgens de EU-regels en -voorschriften evenals de wetten van Nederland, ver=
+zoek ik u vriendelijk om deze kwestie op een passende manier te behandelen.=
+ Ik ben oprecht van mening dat deze productiefout onder de garantie moet va=
+llen en ik verzoek u vriendelijk om uw hulp om deze situatie zo spoedig mog=
+elijk te rectificeren. Volgens de wet heb ik als consument recht op een pro=
+duct dat aan de overeenkomst voldoet. Als het product niet de eigenschappen=
+ bezit die ik ervan mag verwachten en het gebrek mij niet te verwijten valt=
+, heb ik op grond van artikel 7:21 BW recht op herstel of vervanging van he=
+t product. De verkoper van het product dient hiervoor zonder kosten en binn=
+en een redelijke termijn te zorgen. Ik verzoek u daarom over te gaan tot ee=
+n kosteloos herstel danwel een kosteloze vervanging van de accu en de lader=
+. Mocht u van mening zijn dat mijn klacht niet gegrond is, dan wijs ik u bi=
+j voorbaat op de omgekeerde bewijslast van artikel 7:18a lid 2 BW. Wanneer =
+een gebrek zich namelijk binnen twaalf maanden na aankoop openbaart, verond=
+erstelt de wet dat het product vanaf aankoop niet aan de overeenkomst heeft=
+ voldaan. Indien u als verkoper meent dat het product wel zonder het gebrek=
+ is afgeleverd en/of het gebrek door toedoen van mij is ontstaan, dient u d=
+aarvoor bewijs te leveren.
+
+Meegeleverd is mijn aankoopbon. Bedankt voor uw aandacht voor deze kwestie.=
+ Ik zie graag een antwoord binnen 14 dagen tegemoet.
+
+Met vriendelijke groet,
+
+Marco Meijer
+
+Deze brief is gemaakt met de brievenhulp van de Consumentenbond op basis va=
+n de door mij ingevulde gegevens.
+
+This email may be confidential and privileged. If you received this communi=
+cation by mistake,
+please don't forward it to anyone else, please erase all copies and attachm=
+ents, and please let me
+know that it has gone to the wrong person. The above terms reflect a potent=
+ial business
+arrangement, are provided solely as a basis for further discussion and are =
+not intended to be and
+do not constitute a legally binding obligation. No legally binding obligati=
+ons will be created, implied,
+or inferred until an agreement in final form is executed in writing by all =
+parties involved.
+
+
+*Conversation ID: rbn_cnv=3D1479154b-7b22-4a15-bd39-9e1e2cb70a42
+--=-/ORZaVyTB9M+7nClCjwkdg==
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+Content-Id: <033521ae-d83c-4972-a2c6-f64664a401ca>
+
+PHRhYmxlIHN0eWxlPSJmb250LWZhbWlseTogQXJpYWw7IGZvbnQtc2l6ZToxM3B4OyBtYXgtd2lk
+dGg6IDYwMHB4OyB3aWR0aDogMTAwJTsiIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMTAi
+IGJvcmRlcj0iMCI+PHRyPjx0ZD48cD48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxMS4wcHQ7IGZv
+bnQtZmFtaWx5OiAnQ2FsaWJyaSc7Ij48ZGl2PkJlc3RlIG1lbmVlciBNZWlqZXIsPC9kaXY+PGRp
+dj48YnIgZGF0YS1tY2UtYm9ndXM9IjEiPjwvZGl2PjxkaXY+PGJyIGRhdGEtbWNlLWJvZ3VzPSIx
+Ij48L2Rpdj48ZGl2PkJlZGFua3Qgdm9vciB1dyBiZXJpY2h0LjwvZGl2PjxkaXY+PGJyIGRhdGEt
+bWNlLWJvZ3VzPSIxIj48L2Rpdj48ZGl2PldpaiBnYWFuIG5pZXQgYWtrb29yZCBtZXQgZGUgdmVy
+Z29lZGluZywgb256ZSBtb250ZXVycyB6aWpuIGRlIGV4cGVydHMgYmlqIG9ucyBlbiBnZXZlbiBh
+YW4gZGF0IGRpdCBnZWJydWlrZXJzc2NoYWRlIGlzIGdld2Vlc3QuIEhpZXIgenVsbGVuIHdpaiBv
+bnMgZGFuIG9vayBhYW4gaG91ZGVuLjwvZGl2PjxkaXY+PGJyIGRhdGEtbWNlLWJvZ3VzPSIxIj48
+L2Rpdj48ZGl2PkV4Y3VzZXMgdm9vciBoZXQgb25nZW1hay48L2Rpdj48L3NwYW4+PC9wPg0KPHRh
+YmxlIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0iMTAiPg0KPHRib2R5Pg0KPHRyPg0KPHRk
+PjxiciAvPjxiciAvPjxiciAvPjxhIGhyZWY9Imh0dHBzOi8vd3d3LmZpZXRzZW53aW5rZWwubmwi
+PjxpbWcgc3JjPSJodHRwczovL21jdXNlcmNvbnRlbnQuY29tLzczNzM2NDVlMzYwYzc5MGQ1M2Nk
+NjY2Y2QvaW1hZ2VzL2VjMDMyYmQwLTc5YzItZmM4MS1mOGI4LTM3MTdmMmNlZjBhZC5wbmciIHdp
+ZHRoPSIxMjUiIGhlaWdodD0iNDYiIC8+PC9hPjwvdGQ+DQo8dGQ+PGJyIC8+DQo8cD5NZXQgdnJp
+ZW5kZWxpamtlIGdyb2V0LDwvcD4NCjxwPjxzdHJvbmc+U2FiaXI8L3N0cm9uZz48YnIgLz48c3Ry
+b25nPktsYW50ZW5zZXJ2aWNlIEZpZXRzZW53aW5rZWwubmw8L3N0cm9uZz48YnIgLz48YSBocmVm
+PSJodHRwczovL3d3dy5maWV0c2Vud2lua2VsLm5sIj53d3cuZmlldHNlbndpbmtlbC5ubDwvYT48
+YnIgLz48YnIgLz48L3A+DQo8L3RkPg0KPC90cj4NCjwvdGJvZHk+DQo8L3RhYmxlPg0KPHA+PGRp
+diBzdHlsZT0nY29sb3I6ICMzMzM7Jz48aHIgc3R5bGU9J21hcmdpbi1sZWZ0OiAwcHg7IG1hcmdp
+bi10b3A6IDIwcHg7IG1hcmdpbi1ib3R0b206IDExcHg7IHdpZHRoOiAxMDAlOyAgYm9yZGVyOiAw
+OyBoZWlnaHQ6IDA7IGJvcmRlci10b3A6IDFweCBzb2xpZCAjZTFlMWUxOyBib3JkZXItYm90dG9t
+OiAwcHg7JyAvPjxiPlZhbjwvYj46IE1hcmNvIE1laWplcjxiciAvPjxiPkFhbjwvYj46IEtTIHwg
+SW5mbzxiciAvPjxiPkRhdHVtPC9iPjogMDgganVuIDE1OjM2PGJyIC8+PGI+T25kZXJ3ZXJwPC9i
+PjogUmU6IEZvcm1lZWwgdmVyem9layB2b29yIGdhcmFudGllc2VydmljZSBtZXQgYmV0cmVra2lu
+ZyB0b3QgZWxla3RyaXNjaGUgZmlldHNsYWRlciBlbiBhY2N1PGJyIC8+PGJyIC8+PGRpdiBkaXI9
+Imx0ciI+R2VhY2h0ZSBoZWVyL21ldnJvdXcsPGRpdj48YnI+PC9kaXY+PGRpdj5JayBoZWIgaW5t
+aWRkZWxzIGNvbnRhY3QgZ2VoYWQgbWV0IGhldCBqdXJpZGlzY2ggbG9rZXQuIFppaiBoZWJiZW4g
+bWlqIGdlYWR2aXNlZXJkIG9tIG5vZ21hYWxzIHZpYSBkZXplIHdlZyBjb250YWN0IG1ldCBqdWxs
+aWUgdGUgem9la2VuIG9tIGVyIHNhbWVuIHVpdCB0ZSBrb21lbi4gTW9jaHQgZGl0IG5pZXQgbHVr
+a2VuIGRhbiBiZW4gaWsgZ2Vub29kemFha3Qgb20ganVyaWRpc2NoZSBzdGFwcGVuIHRlIG9uZGVy
+bmVtZW4uwqA8L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2Pk9vayBnYWYgaGV0IGp1cmlkaXNjaCBs
+b2tldCBhYW4gZGF0IGRlIGJld2lqc2xhc3QgdmFuIG1pam7CoHNjaHVsZCBiaWoganVsbGllIGxp
+Z3Qgb21kYXQgaGV0IHByb2R1Y3Qga2Fwb3QgaXMgZ2VnYWFuLiA8YSBocmVmPSJodHRwczovL3d3
+dy5qdXJpZGlzY2hsb2tldC5ubC9hYW5rb3Blbi1lbi1nYXJhbnRpZS9nYXJhbnRpZS9vbmRldWdk
+ZWxpamstcHJvZHVjdC8iPlppZSBoaWVydm9vciBkZSBpbmZvcm1hdGllIGluIGRlemUgbGluay48
+L2E+wqBPbmRhbmtzIG1pam4gZWVyZGVyZSB2ZXJ6b2VrZW4gaGllcnRvZSBoZWJiZW4ganVsbGll
+IG5vZyBuaWV0IGFhbiBkZXplIHdldHRlbGlqa2UgdmVycGxpY2h0aW5nIHZvbGRhYW4uIElrIGJs
+aWpmIGVyYmlqIGRhdCBkZSBzY2h1bGQgbmlldCBiaWogbWlqIGxpZ3QgYWFuZ2V6aWVuIGlrIGVu
+a2VsIGRlIGFwcGFyYXR1dXIgaGViIGdlYnJ1aWt0IG9wIGRlIG1hbmllciB6b2FscyBiZXNjaHJl
+dmVuIGluIGRlIGhhbmRsZWlkaW5nLjxicj48L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2PkFhbmdl
+emllbiBpayBtaWpuIGZpZXRzIGRhZ2VsaWprcyBnZWJydWlrIHZvb3IgbWlqbiB3ZXJrIGVuIGp1
+bGxpZSBuaWV0IGRvb3J0YXN0ZW5kIGhlYmJlbiBnZWhhbmRlbGQgb3AgbWlqbiB2b29yZ2FhbmRl
+IG1haWxzIHdhcyBpayBnZW5vb2R6YWFrdCBvbSBlZW4gbmlldXdlIGFjY3UgZW4gb3BsYWRlciBh
+YW4gdGUgc2NoYWZmZW4gc2FtZW4gdGVyIHdhYXJkZSB2YW4g4oKsNTc4LiBJayBzdHV1ciBiZXdp
+anMgdmFuIGRlemXCoGFhbmtvb3AgbWVlIG1ldCBkZXplIGVtYWlsLjwvZGl2PjxkaXY+PGJyPjwv
+ZGl2PjxkaXY+SWsgdmVyem9layB1IG9tIGJpbm5lbiAxNCBkYWdlbiBtaWpuIHNjaGFkZSB0ZSB2
+ZXJnb2VkZW4uIFUga3VudCBoZXQgYmVkcmFnIG92ZXJtYWtlbiBvcCByZWtlbmluZ251bW1lciBO
+TDg5UkFCTzAxMDIwNTg2NTLCoG9wIG5hYW0gdmFuIE0uTC4gTWVpamVyLjwvZGl2Pjxicj5HcmFh
+ZyBvbnR2YW5nIGlrIGJpbm5lbiB0d2VlIHdla2VuIHV3IHJlYWN0aWUuPGJyPjxicj5BbHZhc3Qg
+YmVkYW5rdC48YnI+PGJyPk1ldCB2cmllbmRlbGlqa2UgZ3JvZXQsPGRpdj48YnI+PC9kaXY+PGRp
+dj5NYXJjbyBNZWlqZXI8L2Rpdj48L2Rpdj48YnI+PGRpdiBjbGFzcz0iZ21haWxfcXVvdGUiPjxk
+aXYgZGlyPSJsdHIiIGNsYXNzPSJnbWFpbF9hdHRyIj5PbiBUaHUsIDI1IE1heSAyMDIzIGF0IDE1
+OjE2LCBLbGFudGVuc2VydmljZSBGaWV0c2Vud2lua2VsLm5sICZsdDs8YSBocmVmPSJtYWlsdG86
+aW5mb0BmaWV0c2Vud2lua2VsLm5sIj5pbmZvQGZpZXRzZW53aW5rZWwubmw8L2E+Jmd0OyB3cm90
+ZTo8YnI+PC9kaXY+PGJsb2NrcXVvdGUgY2xhc3M9ImdtYWlsX3F1b3RlIiBzdHlsZT0ibWFyZ2lu
+OjBweCAwcHggMHB4IDAuOGV4O2JvcmRlci1sZWZ0OjFweCBzb2xpZCByZ2IoMjA0LDIwNCwyMDQp
+O3BhZGRpbmctbGVmdDoxZXgiPjx0YWJsZSBzdHlsZT0iZm9udC1mYW1pbHk6QXJpYWw7Zm9udC1z
+aXplOjEzcHg7bWF4LXdpZHRoOjYwMHB4O3dpZHRoOjEwMCUiIGNlbGxzcGFjaW5nPSIwIiBjZWxs
+cGFkZGluZz0iMTAiIGJvcmRlcj0iMCI+PHRib2R5Pjx0cj48dGQ+PHA+PHNwYW4gc3R5bGU9ImZv
+bnQtc2l6ZToxMXB0O2ZvbnQtZmFtaWx5OkNhbGlicmkiPjwvc3Bhbj48L3A+PGRpdj5CZXN0ZSBt
+ZW5lZXIgTWVpamVyLDwvZGl2PjxkaXY+PGJyPjwvZGl2PjxkaXY+PGJyPjwvZGl2PjxkaXY+QmVk
+YW5rdCB2b29yIHV3IGJlcmljaHQuPC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5FZW4gcGluIGJy
+ZWVrdCBuaWV0IHVpdCB6aWNoemVsZiwgZGV6ZSBrb210IGVyIG9vayBuaWV0IHVpdCB6aWNoemVs
+ZiB0ZXJlY2h0LjwvZGl2PjxkaXY+VXcgbWVuaW5nIGhpZXJ1aXQgaXMgaXMgZGF0IGhldCBwcm9k
+dWN0IHVpdCB6aWNoemVsZiBnZWJyb2tlbiBpcywgb256ZSBtb250ZXVycyB2aW5kZW4gdmFuIG5p
+ZXQuPC9kaXY+PGRpdj5XaWogaGFudGVyZW4gaGllcmJpaiBkZSBleHBlcnRpc2UgdmFuIG9uemUg
+bW9udGV1cnMuPC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5Ob2dtYWFs
+cyBnYWFuIHdpaiBuaWV0IGFra29vcmQgbWV0IGhldCB2b29yc3RlbCwgb29rIGRlIDEwJSBrdW5u
+ZW4gd2lqIG5pZXQgbWVlciBhYW5iaWVkZW4gb21kYXQgZGl0IG9tIGVlbiBnZWJydWlrZXJzZm91
+dCBnYWF0LjwvZGl2PjxwPjwvcD4KPHRhYmxlIGNlbGxzcGFjaW5nPSIwIiBjZWxscGFkZGluZz0i
+MTAiPgo8dGJvZHk+Cjx0cj4KPHRkPjxicj48YnI+PGJyPjxhIGhyZWY9Imh0dHBzOi8vd3d3LmZp
+ZXRzZW53aW5rZWwubmwiIHRhcmdldD0iX2JsYW5rIj48aW1nIHNyYz0iaHR0cHM6Ly9tY3VzZXJj
+b250ZW50LmNvbS83MzczNjQ1ZTM2MGM3OTBkNTNjZDY2NmNkL2ltYWdlcy9lYzAzMmJkMC03OWMy
+LWZjODEtZjhiOC0zNzE3ZjJjZWYwYWQucG5nIiB3aWR0aD0iMTI1IiBoZWlnaHQ9IjQ2Ij48L2E+
+PC90ZD4KPHRkPjxicj4KPHA+TWV0IHZyaWVuZGVsaWprZSBncm9ldCw8L3A+CjxwPjxzdHJvbmc+
+U2FiaXI8L3N0cm9uZz48YnI+PHN0cm9uZz5LbGFudGVuc2VydmljZSBGaWV0c2Vud2lua2VsLm5s
+PC9zdHJvbmc+PGJyPjxhIGhyZWY9Imh0dHBzOi8vd3d3LmZpZXRzZW53aW5rZWwubmwiIHRhcmdl
+dD0iX2JsYW5rIj53d3cuZmlldHNlbndpbmtlbC5ubDwvYT48YnI+PGJyPjwvcD4KPC90ZD4KPC90
+cj4KPC90Ym9keT4KPC90YWJsZT4KPHA+PC9wPjxkaXYgc3R5bGU9ImNvbG9yOnJnYig1MSw1MSw1
+MSkiPjxociBzdHlsZT0ibWFyZ2luLWxlZnQ6MHB4O21hcmdpbi10b3A6MjBweDttYXJnaW4tYm90
+dG9tOjExcHg7d2lkdGg6MTAwJTtib3JkZXItd2lkdGg6MXB4IDBweCAwcHg7Ym9yZGVyLXJpZ2h0
+LXN0eWxlOmluaXRpYWw7Ym9yZGVyLWxlZnQtc3R5bGU6aW5pdGlhbDtib3JkZXItcmlnaHQtY29s
+b3I6aW5pdGlhbDtib3JkZXItbGVmdC1jb2xvcjppbml0aWFsO2hlaWdodDowcHg7Ym9yZGVyLXRv
+cC1zdHlsZTpzb2xpZDtib3JkZXItdG9wLWNvbG9yOnJnYigyMjUsMjI1LDIyNSk7Ym9yZGVyLWJv
+dHRvbS1zdHlsZTppbml0aWFsO2JvcmRlci1ib3R0b20tY29sb3I6aW5pdGlhbCI+PGI+VmFuPC9i
+PjogTWFyY28gTWVpamVyPGJyPjxiPkFhbjwvYj46IEtTIHwgSW5mbzxicj48Yj5EYXR1bTwvYj46
+IDI1IG1laSAxNTowNjxicj48Yj5PbmRlcndlcnA8L2I+OiBSZTogRm9ybWVlbCB2ZXJ6b2VrIHZv
+b3IgZ2FyYW50aWVzZXJ2aWNlIG1ldCBiZXRyZWtraW5nIHRvdCBlbGVrdHJpc2NoZSBmaWV0c2xh
+ZGVyIGVuIGFjY3U8YnI+PGJyPjxkaXYgZGlyPSJhdXRvIj48ZGl2PkJlc3RlIEZpZXRzZW53aW5r
+ZWwubmwswqA8L2Rpdj48ZGl2IGRpcj0iYXV0byI+PGJyPjwvZGl2PjxkaXYgZGlyPSJhdXRvIj5a
+b2p1aXN0IGhlYiBpayBjb250YWN0IGdlaGFkIG1ldCBkZSBhZHZpZXNhZmRlbGluZyB2YW4gZGUg
+Q29uc3VtZW50ZW5ib25kLiBaaWogemlqbiBoZXQgbWV0IG1paiBlZW5zIGRhdCBkZXplIGt3ZXN0
+aWUgb25kZXIgZ2FyYW50aWUgZGllbnQgdGUgdmFsbGVuLCBlbiBoZWJiZW4gbWlqIGFkdmllcyBn
+ZWdldmVuIGluIGRlemUgY29ycmVzcG9uZGVudGllLsKgPC9kaXY+PGRpdiBkaXI9ImF1dG8iPjxi
+cj48L2Rpdj48ZGl2IGRpcj0iYXV0byI+T3AgYmFzaXMgdmFuIGRlIHdldHRlbGlqa2UgZ2FyYW50
+aWUsIGhlYiBpayByZWNodCBvcCBrb3N0ZW5sb3plIHJlcGFyYXRpZSBvZiB2ZXJ2YW5naW5nLCB0
+ZW56aWogdSBtaWoga2FuIGFhbnRvbmVuIGRhdCBpayBkaXQgemVsZiBoZWIgdmVyb29yemFha3Qg
+KHBlciBhcnRpa2VsIDc6MThhIGxpZCAyIEJXIGVuIGFydGlrZWwgNzoyMSBCVykuPC9kaXY+PGRp
+diBkaXI9ImF1dG8iPjxicj48L2Rpdj48ZGl2IGRpcj0iYXV0byI+TmFhciB3YXQgaWsgdmlhIE1h
+a2thYmlrZXMgaGViIHZlcm5vbWVuLCB6b3UgdXcgb3Bsb3NzaW5nIHppam4gb20gem93ZWwgZGUg
+b3BsYWRlciBhbHMgZGUgYWNjdSB0ZSB2ZXJ2YW5nZW4uIEVlbiBhY2N1IGRpZSBub3RhIGJlbmUg
+aW4gZ29lZGUgc3RhYXQgaXMgZW4gd2FhcnVpdCBlbmtlbCBkZSBhZmdlYnJva2VuIHBpbiBkaWVu
+dCB0ZSB3b3JkZW4gdmVyd2lqZGVyZC4gTWV0IG9vZyBvcCBtaWpuIHdldHRlbGlqa2UgcmVjaHRl
+biwgaXMgaGV0IGdlZW4gYWNjZXB0YWJlbGUgb3Bsb3NzaW5nIG9tIG1paiB2b29yIHR3ZWUgbmll
+dXdlIHByb2R1Y3RlbiB0ZSBsYXRlbiBiZXRhbGVuLsKgPC9kaXY+PGRpdiBkaXI9ImF1dG8iPjxi
+cj48L2Rpdj48ZGl2IGRpcj0iYXV0byI+SW4gZGUgdm9yaWdlIGNvcnJlc3BvbmRlbnRpZSBoZWVm
+dCB1IG9vayBuaWV0IGt1bm5lbiBiZXdpanplbiBkYXQgaWsgaGV0IHByb2JsZWVtIHplbGYgem91
+IGhlYmJlbiB2ZXJvb3J6YWFrdC4gRGFhcm9tIHdpbCBpayBkYXQgZGl0IGtvc3RlbG9vcyB3b3Jk
+dCBnZXJlcGFyZWVyZCBvZiB2ZXJ2YW5nZW4uwqA8L2Rpdj48ZGl2IGRpcj0iYXV0byI+PGJyPjwv
+ZGl2PjxkaXYgZGlyPSJhdXRvIj5NZXQgdnJpZW5kZWxpamtlIGdyb2V0LMKgPC9kaXY+PGRpdiBk
+aXI9ImF1dG8iPk1hcmNvIE1laWplcsKgPC9kaXY+PGRpdiBkaXI9ImF1dG8iPjxicj48ZGl2IGNs
+YXNzPSJnbWFpbF9xdW90ZSIgZGlyPSJhdXRvIj48ZGl2IGRpcj0ibHRyIiBjbGFzcz0iZ21haWxf
+YXR0ciI+T3AgZG8gMjUgbWVpIDIwMjMgMTI6MjQgc2NocmVlZiBLbGFudGVuc2VydmljZSBGaWV0
+c2Vud2lua2VsLm5sICZsdDs8YSBocmVmPSJtYWlsdG86aW5mb0BmaWV0c2Vud2lua2VsLm5sIiB0
+YXJnZXQ9Il9ibGFuayI+aW5mb0BmaWV0c2Vud2lua2VsLm5sPC9hPiZndDs6PGJyPjwvZGl2Pjxi
+bG9ja3F1b3RlIGNsYXNzPSJnbWFpbF9xdW90ZSIgc3R5bGU9Im1hcmdpbjowcHggMHB4IDBweCAw
+LjhleDtib3JkZXItbGVmdDoxcHggc29saWQgcmdiKDIwNCwyMDQsMjA0KTtwYWRkaW5nLWxlZnQ6
+MWV4Ij48dGFibGUgc3R5bGU9ImZvbnQtZmFtaWx5OkFyaWFsO2ZvbnQtc2l6ZToxM3B4O21heC13
+aWR0aDo2MDBweDt3aWR0aDoxMDAlIiBjZWxsc3BhY2luZz0iMCIgY2VsbHBhZGRpbmc9IjEwIiBi
+b3JkZXI9IjAiPjx0Ym9keT48dHI+PHRkPjxwPjxzcGFuIHN0eWxlPSJmb250LXNpemU6MTFwdDtm
+b250LWZhbWlseTpDYWxpYnJpIj48L3NwYW4+PC9wPjxkaXY+QmVzdGUgbWVuZWVyIE1laWplciw8
+L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2Pjxicj48L2Rpdj48ZGl2PkJlZGFua3Qgdm9vciB1dyBi
+ZXJpY2h0LjwvZGl2PjxkaXY+PGJyPjwvZGl2PjxkaXY+VXcgZnJ1c3RyYXRpZSBpcyB0ZXJlY2h0
+LCBvb2sgaWsgem91IGJlZ3JpanBlbiBkYXQgZGl0IGVlbiBlcmcgdmVydmVsZW5kZSBzaXR1YXRp
+ZSBpcy4gSGVsYWFzIGdlYmV1cmVuIG9uZ2VsdWtrZW4gZXJnIHZhYWssIG9vayBhbHMgZGl0IG5p
+ZXQgZGUgYmVkb2VsaW5nIGlzIGdld2Vlc3QuPC9kaXY+PGRpdj48YnI+PC9kaXY+PGRpdj5Pbnpl
+IG1vbnRldXJzIGdldmVuIGFhbiBkYXQgZGl0IG9uZGVyIGdlYnJ1aWtzc3BvcmVuIHZhbHQsIGRp
+dCB6dWxsZW4gd2lqIGR1cyBvb2sgbmlldCBrb3N0ZWxvb3MgdmVyZ29lZGVuLjwvZGl2PjxkaXY+
+V2VsIHdpbGxlbiB3aWogbWVlIGRlbmtlbiBpbiBlZW4gY291bGFuY2UgaGllcnVpdCwgbW9jaHQg
+dSBkZSByZXBhcmF0aWUgdG9jaCBiaWogb25zIGxhdGVuIHZvZXJlbiBkYW4gd2lsbGVuIHdpaiAx
+MCUgb3AgZWlnZW4ga29zdGVuIG5lbWVuLjwvZGl2PjxkaXY+PGJyPjwvZGl2PjxkaXY+VmVyd2Fj
+aHRlbmQgdSBoaWVybWVlIGdlaG9scGVuIHRlIGhlYmJlbi48L2Rpdj48ZGl2Pjxicj48L2Rpdj48
+cD48L3A+Cjx0YWJsZSBjZWxsc3BhY2luZz0iMCIgY2VsbHBhZGRpbmc9IjEwIj4KPHRib2R5Pgo8
+dHI+Cjx0ZD48YnI+PGJyPjxicj48YSBocmVmPSJodHRwczovL3d3dy5maWV0c2Vud2lua2VsLm5s
+IiByZWw9Im5vcmVmZXJyZXIiIHRhcmdldD0iX2JsYW5rIj48aW1nIHNyYz0iaHR0cHM6Ly9tY3Vz
+ZXJjb250ZW50LmNvbS83MzczNjQ1ZTM2MGM3OTBkNTNjZDY2NmNkL2ltYWdlcy9lYzAzMmJkMC03
+OWMyLWZjODEtZjhiOC0zNzE3ZjJjZWYwYWQucG5nIiB3aWR0aD0iMTI1IiBoZWlnaHQ9IjQ2Ij48
+L2E+PC90ZD4KPHRkPjxicj4KPHA+TWV0IHZyaWVuZGVsaWprZSBncm9ldCw8L3A+CjxwPjxzdHJv
+bmc+U2FiaXI8L3N0cm9uZz48YnI+PHN0cm9uZz5LbGFudGVuc2VydmljZSBGaWV0c2Vud2lua2Vs
+Lm5sPC9zdHJvbmc+PGJyPjxhIGhyZWY9Imh0dHBzOi8vd3d3LmZpZXRzZW53aW5rZWwubmwiIHJl
+bD0ibm9yZWZlcnJlciIgdGFyZ2V0PSJfYmxhbmsiPnd3dy5maWV0c2Vud2lua2VsLm5sPC9hPjxi
+cj48YnI+PC9wPgo8L3RkPgo8L3RyPgo8L3Rib2R5Pgo8L3RhYmxlPgo8cD48L3A+PGRpdiBzdHls
+ZT0iY29sb3I6cmdiKDUxLDUxLDUxKSI+PGhyIHN0eWxlPSJtYXJnaW4tbGVmdDowcHg7bWFyZ2lu
+LXRvcDoyMHB4O21hcmdpbi1ib3R0b206MTFweDt3aWR0aDoxMDAlO2JvcmRlci13aWR0aDoxcHgg
+MHB4IDBweDtib3JkZXItcmlnaHQtc3R5bGU6aW5pdGlhbDtib3JkZXItbGVmdC1zdHlsZTppbml0
+aWFsO2JvcmRlci1yaWdodC1jb2xvcjppbml0aWFsO2JvcmRlci1sZWZ0LWNvbG9yOmluaXRpYWw7
+aGVpZ2h0OjBweDtib3JkZXItdG9wLXN0eWxlOnNvbGlkO2JvcmRlci10b3AtY29sb3I6cmdiKDIy
+NSwyMjUsMjI1KTtib3JkZXItYm90dG9tLXN0eWxlOmluaXRpYWw7Ym9yZGVyLWJvdHRvbS1jb2xv
+cjppbml0aWFsIj48Yj5WYW48L2I+OiBNYXJjbyBNZWlqZXI8YnI+PGI+QWFuPC9iPjogS1MgfCBJ
+bmZvPGJyPjxiPkRhdHVtPC9iPjogMjMgbWVpIDIzOjI4PGJyPjxiPk9uZGVyd2VycDwvYj46IEZv
+cm1lZWwgdmVyem9layB2b29yIGdhcmFudGllc2VydmljZSBtZXQgYmV0cmVra2luZyB0b3QgZWxl
+a3RyaXNjaGUgZmlldHNsYWRlciBlbiBhY2N1PGJyPjxicj4KCgoKPGRpdj4KPGRpdiBkaXI9Imx0
+ciI+QmVzdGUgRmlldHNlbndpbmtlbC5ubCw8YnI+Cjxicj4KTWV0IGh1bHAgdmFuIGRlIENvbnN1
+bWVudGVuYm9uZCBzdHV1ciBpayB1IGRlemUgYnJpZWYuIElrIHNjaHJpamYgdSBvbSB1dyBodWxw
+IHRlIHZyYWdlbiBtZXQgYmV0cmVra2luZyB0b3QgZWVuIGt3ZXN0aWUgcm9uZG9tIG1pam4gZWxl
+a3RyaXNjaGUgZmlldHMsIGRpZSBpayBvbmdldmVlciAxMCBtYWFuZGVuIGdlbGVkZW4gYmlqIHV3
+IHdpbmtlbCBoZWIgZ2Vrb2NodC48YnI+Cjxicj4KT25sYW5ncyBoZWVmdCBkZSBvcGxhZGVyIHZh
+biBtaWpuIGZpZXRzIGVlbiBtZWNoYW5pc2NoZSBmYWxlbiBnZWhhZCB3YWFyYmlqIGRlIHBpbiBp
+biBkZSBjb25uZWN0b3IgYWZicmFrIGVuIHZhc3Qga3dhbSB0ZSB6aXR0ZW4gaW4gZGUgYWNjdS4g
+T25kYW5rcyBoZXQgZmVpdCBkYXQgZGUgYWNjdSBub2cgc3RlZWRzIGZ1bmN0aW9uZWVsIGlzLCBp
+cyBoZXQgb3BsYWFkcHJvY2VzIG9ubW9nZWxpamsgZ2V3b3JkZW4gdmFud2VnZSBkZSB2YXN0eml0
+dGVuZGUKIHBpbi4gSWsgaGViIGRlIG9wbGFkZXIgZW4gYWNjdSB0ZXIgdmVyemVuZGluZyBuYWFy
+IE1ha2thYmlrZXMgZ2VicmFjaHQuIERlIGZlZWRiYWNrIGRpZSBpayBlY2h0ZXIgdmFuIE1ha2th
+YmlrZXMgb250dmluZywgZ2FmIGFhbiBkYXQgRmlldHNlbndpbmtlbC5ubCB2YW4gbWVuaW5nIGlz
+IGRhdCB6b3dlbCBkZSBvcGxhZGVyIGFscyBkZSBhY2N1IHZvbGxlZGlnIHZlcnZhbmdlbiBkaWVu
+ZW4gdGUgd29yZGVuIGVuIGRhdCBkZXplIHNpdHVhdGllIGJ1aXRlbgogZGUgZ2FyYW50aWUgdmFs
+dC48YnI+Cjxicj4KSWsgbW9ldCBtaWpuIHZlcmJhemluZyB1aXRlbiBvdmVyIGRpdCBzdGFuZHB1
+bnQuIEdlemllbiBkZSBhYXJkIHZhbiBoZXQgb250d2VycCB2YW4gZGUgb3BsYWRlciAtIGVlbiBj
+aWxpbmRlciBtZXQgZWVuIHBpbiBkaWUgYWxsZWVuIHJlY2h0IGthbiB3b3JkZW4gaW5nZWJyYWNo
+dCBvZiB2ZXJ3aWpkZXJkLCBlbiBkdXMgbmlldCBvbmp1aXN0IGdlYnJ1aWt0IGthbiB3b3JkZW4g
+LSBsaWprdCBoZXQgaG9vZ3N0IG9ud2FhcnNjaGlqbmxpamsgZGF0IGRpdAogZmFsZW4gaGV0IGdl
+dm9sZyBrb24gemlqbiB2YW4gb25laWdlbmxpamsgZ2VicnVpay4gSWsgYmVuIG9vayBhbHRpamQg
+emVlciB6dWluaWcgZ2V3ZWVzdCBvcCBkZSBvcGxhZGVyIGVuIGFjY3UuIERlIG9wbGFkZXIgd2Vy
+ZCB2ZWlsaWcgYmV3YWFyZCBpbiBlZW4gb3AgbWFhdCBnZW1hYWt0ZSBlbGVrdHJha2FzdCBkaWUg
+c3RldmlnIGlzIGJldmVzdGlnZCBpbiBtaWpuIGZpZXRzZW5iZXJnaW5nLCB3YWFyYmlqIGRlIG9w
+bGFhZGthYmVsIHZpYSBlZW4KIHdhcnRlbCBidWl0ZW4gZGUga2FzdCB3ZXJkIGdlbGVpZC4gWm9k
+b2VuZGUgdm9ybWRlIGRpdCBlZW4gc29vcnQgb3BsYWFkc3RhdGlvbiB3YWFyYmlqIGRlIG9wbGFk
+ZXIgbmlldCBnZW1ha2tlbGlqayBrb24gd29yZGVuIHZlcnBsYWF0c3Qgb2YgYmVzY2hhZGlnZC4g
+RGUgZmlldHMgemVsZiBoZWVmdCBlZW4gZWlnZW4gZmlldHNlbnJlayBuYWFzdCBoZXQgb3BsYWFk
+c3RhdGlvbiwgem9kYXQgb29rIGRlemUgdGlqZGVucyBoZXQgbGFkZW4gc3RldmlnCiBzdGFhdC4g
+RGl0IGFsbGVzIHRvb250IGFhbiBkYXQgaWsgdWl0ZXJzdCB6b3JndnVsZGlnIG1ldCBtaWpuIGZp
+ZXRzIGVuIG9wbGFkZXIgb21nYS48YnI+Cjxicj4KR2V6aWVuIGRlemUgZmVpdGVuLCBnZWxvb2Yg
+aWsgZGF0IGRlIHBpbiB2YW4gZGUgb3BsYWRlciBtb2dlbGlqayB2YW5hZiBoZXQgYmVnaW4gZWVu
+IHByb2R1Y3RpZWZvdXQgaGFkLCB3YXQgdWl0ZWluZGVsaWprIHRvdCBoZXQgdm9vcnRpamRpZyBm
+YWxlbiBlcnZhbiBoZWVmdCBnZWxlaWQgb25kZXIgbm9ybWFhbCBnZWJydWlrLiBOYWFyIG1pam4g
+bWVuaW5nIGlzIGRpdCBnZWVuIGdldmFsIHZhbiBub3JtYWxlIHNsaWp0YWdlLiBPbmRhbmtzIGRl
+IGthcG90dGUKIG9wbGFkZXIgYmxpamZ0IGRlIGFjY3UgZnVuY3Rpb25lZWwgZW4gdmVydG9vbnQg
+Z2VlbiBzaWduaWZpY2FudGUgdGVrZW5lbiB2YW4gc2xpanRhZ2UuIEluIHByaW5jaXBlIHpvdSBo
+ZXQgdm9sZG9lbmRlIG1vZXRlbiB6aWpuIG9tIGRlIHBpbiB1aXQgZGUgb3BsYWFkcG9vcnQgdmFu
+IGRlIGFjY3UgdGUgdmVyd2lqZGVyZW4uIElrIGhlYiBkZSBmaWV0cyBuaWV0IGRhZ2VsaWprcyBn
+ZWJydWlrdCwgbm9jaCBoZWIgaWsgZGUgYWNjdSB2YWFrIG9wZ2VsYWRlbgogd2FubmVlciBkZXpl
+IGJvdmVuIGRlIGRyaWVrd2FydCB2b2wgd2FzLiBHZXppZW4gZGV6ZSBnZWJydWlrc3Zvb3J3YWFy
+ZGVuLCBsaWprdCBoZXQgcmVkZWxpamsgb20gYWFuIHRlIG5lbWVuIGRhdCBkZSBvcGxhZGVyIG9u
+ZGVyIG5vcm1hbGUgb21zdGFuZGlnaGVkZW4gbWluc3RlbnMgdHdlZSBqYWFyIHpvdSBtb2V0ZW4g
+bWVlZ2Fhbi48YnI+Cjxicj4KVm9sZ2VucyBkZSBFVS1yZWdlbHMgZW4gLXZvb3JzY2hyaWZ0ZW4g
+ZXZlbmFscyBkZSB3ZXR0ZW4gdmFuIE5lZGVybGFuZCwgdmVyem9layBpayB1IHZyaWVuZGVsaWpr
+IG9tIGRlemUga3dlc3RpZSBvcCBlZW4gcGFzc2VuZGUgbWFuaWVyIHRlIGJlaGFuZGVsZW4uIElr
+IGJlbiBvcHJlY2h0IHZhbiBtZW5pbmcgZGF0IGRlemUgcHJvZHVjdGllZm91dCBvbmRlciBkZSBn
+YXJhbnRpZSBtb2V0IHZhbGxlbiBlbiBpayB2ZXJ6b2VrIHUgdnJpZW5kZWxpamsKIG9tIHV3IGh1
+bHAgb20gZGV6ZSBzaXR1YXRpZSB6byBzcG9lZGlnIG1vZ2VsaWprIHRlIHJlY3RpZmljZXJlbi4g
+Vm9sZ2VucyBkZSB3ZXQgaGViIGlrIGFscyBjb25zdW1lbnQgcmVjaHQgb3AgZWVuIHByb2R1Y3Qg
+ZGF0IGFhbiBkZSBvdmVyZWVua29tc3Qgdm9sZG9ldC4gQWxzIGhldCBwcm9kdWN0IG5pZXQgZGUg
+ZWlnZW5zY2hhcHBlbiBiZXppdCBkaWUgaWsgZXJ2YW4gbWFnIHZlcndhY2h0ZW4gZW4gaGV0IGdl
+YnJlayBtaWogbmlldCB0ZSB2ZXJ3aWp0ZW4KIHZhbHQsIGhlYiBpayBvcCBncm9uZCB2YW4gYXJ0
+aWtlbCA3OjIxIEJXIHJlY2h0IG9wIGhlcnN0ZWwgb2YgdmVydmFuZ2luZyB2YW4gaGV0IHByb2R1
+Y3QuIERlIHZlcmtvcGVyIHZhbiBoZXQgcHJvZHVjdCBkaWVudCBoaWVydm9vciB6b25kZXIga29z
+dGVuIGVuIGJpbm5lbiBlZW4gcmVkZWxpamtlIHRlcm1pam4gdGUgem9yZ2VuLiBJayB2ZXJ6b2Vr
+IHUgZGFhcm9tIG92ZXIgdGUgZ2FhbiB0b3QgZWVuIGtvc3RlbG9vcyBoZXJzdGVsIGRhbndlbAog
+ZWVuIGtvc3RlbG96ZSB2ZXJ2YW5naW5nIHZhbiBkZSBhY2N1IGVuIGRlIGxhZGVyLiBNb2NodCB1
+IHZhbiBtZW5pbmcgemlqbiBkYXQgbWlqbiBrbGFjaHQgbmlldCBnZWdyb25kIGlzLCBkYW4gd2lq
+cyBpayB1IGJpaiB2b29yYmFhdCBvcCBkZSBvbWdla2VlcmRlIGJld2lqc2xhc3QgdmFuIGFydGlr
+ZWwgNzoxOGEgbGlkIDIgQlcuIFdhbm5lZXIgZWVuIGdlYnJlayB6aWNoIG5hbWVsaWprIGJpbm5l
+biB0d2FhbGYgbWFhbmRlbiBuYSBhYW5rb29wCiBvcGVuYmFhcnQsIHZlcm9uZGVyc3RlbHQgZGUg
+d2V0IGRhdCBoZXQgcHJvZHVjdCB2YW5hZiBhYW5rb29wIG5pZXQgYWFuIGRlIG92ZXJlZW5rb21z
+dCBoZWVmdCB2b2xkYWFuLiBJbmRpZW4gdSBhbHMgdmVya29wZXIgbWVlbnQgZGF0IGhldCBwcm9k
+dWN0IHdlbCB6b25kZXIgaGV0IGdlYnJlayBpcyBhZmdlbGV2ZXJkIGVuL29mIGhldCBnZWJyZWsg
+ZG9vciB0b2Vkb2VuIHZhbiBtaWogaXMgb250c3RhYW4sIGRpZW50IHUgZGFhcnZvb3IgYmV3aWpz
+CiB0ZSBsZXZlcmVuLjxicj4KPGJyPgpNZWVnZWxldmVyZCBpcyBtaWpuIGFhbmtvb3Bib24uIEJl
+ZGFua3Qgdm9vciB1dyBhYW5kYWNodCB2b29yIGRlemUga3dlc3RpZS4gSWsgemllIGdyYWFnIGVl
+biBhbnR3b29yZCBiaW5uZW4gMTQgZGFnZW4gdGVnZW1vZXQuPGJyPgo8YnI+Ck1ldCB2cmllbmRl
+bGlqa2UgZ3JvZXQsPGJyPgo8YnI+Ck1hcmNvIE1laWplcjxicj4KPGJyPgpEZXplIGJyaWVmIGlz
+IGdlbWFha3QgbWV0IGRlIGJyaWV2ZW5odWxwIHZhbiBkZSBDb25zdW1lbnRlbmJvbmQgb3AgYmFz
+aXMgdmFuIGRlIGRvb3IgbWlqIGluZ2V2dWxkZSBnZWdldmVucy48YnI+CjwvZGl2Pgo8ZGl2IHN0
+eWxlPSJmb250LXNpemU6OXB0O2ZvbnQtZmFtaWx5OlRhaG9tYSxzYW5zLXNlcmlmO2NvbG9yOnJn
+YigxMTcsMTIzLDEyOCkiPjxicj4KPGJyPgpUaGlzIGVtYWlsIG1heSBiZSBjb25maWRlbnRpYWwg
+YW5kIHByaXZpbGVnZWQuIElmIHlvdSByZWNlaXZlZCB0aGlzIGNvbW11bmljYXRpb24gYnkgbWlz
+dGFrZSw8YnI+CnBsZWFzZSBkb24mIzM5O3QgZm9yd2FyZCBpdCB0byBhbnlvbmUgZWxzZSwgcGxl
+YXNlIGVyYXNlIGFsbCBjb3BpZXMgYW5kIGF0dGFjaG1lbnRzLCBhbmQgcGxlYXNlIGxldCBtZTxi
+cj4Ka25vdyB0aGF0IGl0IGhhcyBnb25lIHRvIHRoZSB3cm9uZyBwZXJzb24uIFRoZSBhYm92ZSB0
+ZXJtcyByZWZsZWN0IGEgcG90ZW50aWFsIGJ1c2luZXNzPGJyPgphcnJhbmdlbWVudCwgYXJlIHBy
+b3ZpZGVkIHNvbGVseSBhcyBhIGJhc2lzIGZvciBmdXJ0aGVyIGRpc2N1c3Npb24gYW5kIGFyZSBu
+b3QgaW50ZW5kZWQgdG8gYmUgYW5kPGJyPgpkbyBub3QgY29uc3RpdHV0ZSBhIGxlZ2FsbHkgYmlu
+ZGluZyBvYmxpZ2F0aW9uLiBObyBsZWdhbGx5IGJpbmRpbmcgb2JsaWdhdGlvbnMgd2lsbCBiZSBj
+cmVhdGVkLCBpbXBsaWVkLDxicj4Kb3IgaW5mZXJyZWQgdW50aWwgYW4gYWdyZWVtZW50IGluIGZp
+bmFsIGZvcm0gaXMgZXhlY3V0ZWQgaW4gd3JpdGluZyBieSBhbGwgcGFydGllcyBpbnZvbHZlZC4K
+PC9kaXY+CjwvZGl2PgoKPC9kaXY+PHA+PC9wPjxpbWcgc3R5bGU9ImRpc3BsYXk6IG5vbmU7IiBh
+bHQ9Imh0dHBzOi8vd3d3LmZpZXRzZW53aW5rZWwubmwvP3Jibl9jbnY9MTQ3OTE1NGItN2IyMi00
+YTE1LWJkMzktOWUxZTJjYjcwYTQyJmFtcDtyYm5fY2ZtPTEiIHNyYz0iaHR0cDovL3JvYmluY29u
+dGVudGRlc2t0b3AuYmxvYi5jb3JlLndpbmRvd3MubmV0L3JvYmluaW1hZ2VzL3JocC5wbmc/cmJu
+X2Nudj0xNDc5MTU0Yi03YjIyLTRhMTUtYmQzOS05ZTFlMmNiNzBhNDIiPjxwIHN0eWxlPSJvcGFj
+aXR5OjA7Y29sb3I6d2hpdGUiPnJibl9jbnY9MTQ3OTE1NGItN2IyMi00YTE1LWJkMzktOWUxZTJj
+YjcwYTQyPC9wPjwvdGQ+PC90cj48L3Rib2R5PjwvdGFibGU+PC9ibG9ja3F1b3RlPjwvZGl2Pjwv
+ZGl2PjwvZGl2Pgo8L2Rpdj48cD48L3A+PGltZyBzdHlsZT0iZGlzcGxheTogbm9uZTsiIGFsdD0i
+aHR0cHM6Ly93d3cuZmlldHNlbndpbmtlbC5ubC8/cmJuX2Nudj0xNDc5MTU0Yi03YjIyLTRhMTUt
+YmQzOS05ZTFlMmNiNzBhNDImYW1wO3Jibl9jZm09MSIgc3JjPSJodHRwOi8vcm9iaW5jb250ZW50
+ZGVza3RvcC5ibG9iLmNvcmUud2luZG93cy5uZXQvcm9iaW5pbWFnZXMvcmhwLnBuZz9yYm5fY252
+PTE0NzkxNTRiLTdiMjItNGExNS1iZDM5LTllMWUyY2I3MGE0MiI+PHAgc3R5bGU9Im9wYWNpdHk6
+MDtjb2xvcjp3aGl0ZSI+cmJuX2Nudj0xNDc5MTU0Yi03YjIyLTRhMTUtYmQzOS05ZTFlMmNiNzBh
+NDI8L3A+PC90ZD48L3RyPjwvdGJvZHk+PC90YWJsZT48L2Jsb2NrcXVvdGU+PC9kaXY+CjwvZGl2
+PjwvcD48aW1nIHN0eWxlPSdkaXNwbGF5OiBub25lJyBhbHQ9J2h0dHBzOi8vd3d3LmZpZXRzZW53
+aW5rZWwubmwvP3Jibl9jbnY9MTQ3OTE1NGItN2IyMi00YTE1LWJkMzktOWUxZTJjYjcwYTQyJnJi
+bl9jZm09MScgc3JjPSdodHRwOi8vcm9iaW5jb250ZW50ZGVza3RvcC5ibG9iLmNvcmUud2luZG93
+cy5uZXQvcm9iaW5pbWFnZXMvcmhwLnBuZz9yYm5fY252PTE0NzkxNTRiLTdiMjItNGExNS1iZDM5
+LTllMWUyY2I3MGE0MicgLz48cCBzdHlsZT0ndmlzaWJpbGl0eTogaGlkZGVuOyBvcGFjaXR5OiAw
+OyBjb2xvcjogd2hpdGU7Jz5yYm5fY252PTE0NzkxNTRiLTdiMjItNGExNS1iZDM5LTllMWUyY2I3
+MGE0MjwvcD48L3RkPjwvdHI+PC90YWJsZT4=
+
+--=-/ORZaVyTB9M+7nClCjwkdg==--

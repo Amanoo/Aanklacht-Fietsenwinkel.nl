@@ -1,0 +1,428 @@
+Delivered-To: marcoxmeijer@gmail.com
+Received: by 2002:a05:7011:108b:b0:36e:6b0c:7d55 with SMTP id mv11csp1452922mdb;
+        Fri, 14 Jul 2023 10:14:26 -0700 (PDT)
+X-Google-Smtp-Source: APBJJlHODsfjW99QufXT/rPq52OTnNfVsva2GIfNRfE75nrc14ovsug3LZTg7+bIj2q5aYYdv++8
+X-Received: by 2002:a17:907:601f:b0:97d:9b73:690b with SMTP id fs31-20020a170907601f00b0097d9b73690bmr4084833ejc.59.1689354866430;
+        Fri, 14 Jul 2023 10:14:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1689354866; cv=none;
+        d=google.com; s=arc-20160816;
+        b=C8MObU94ms5L0nOiSaJkrsWkfpanJThCH/Cq9vabukTyaC9kT65pUTlb70iSrbOVrI
+         HKKrPZ9/q0K+T5X2AtYcvtStXjL31iB2Z3BrvRorDFPrBzkCYu7N0wmNkMiW5ZVJ6ZnX
+         uSh8lb0e1t4wYKcXLd+4rRgw1i6s3jDkfOKxMJVm5SP7u+C2APw5qsMfaNsNO1E2BNzH
+         0P+ZgbEKuyPlrEVPfV+RyEk7fnx5Qionypyc4Tg5SDKYUZKh7r7Ob5bf7Be9GPgkIAY5
+         g2t3fC0Jxrt7CnyakhtUqHq+NjDSAuXytjZxhbruU6nU/hUBs8HttDwlf/py+dci7KWu
+         y1dQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:message-id:date:subject
+         :in-reply-to:references:to:from:dkim-signature;
+        bh=MBwb/+B/B0ckwg1E9kelcN/im9NnIClGtaP7RcylX6c=;
+        fh=Ii+JuSRMX5tSO5GR9v+D1De/i7NF9IRzi+RGUYIRRjk=;
+        b=ybMGR9bsxF5DUuu7B3reESEHi67KZWhE5DlEgHQQA9ospmg6Kch0fyZDgJkcv6Mfg2
+         CM5AesuhDPPoDtaMdP7zMXBYvv9eudQD0mD+zoVfx6bCxy0XxDhAxi7fXmT1uXZVGzfy
+         iPxAxwPCN+tIIZr20FgaUBtlVr2p2IE+XmRzVfABwCXDaJtE9NxDT0oLSMq94EcOPCs5
+         GbIMbe+le23Dhs9WNThH7DsVOL7Q3E7gW/UXRD3YloVXBNzg16OCL67OzEXJoQBGLn5+
+         IljapODs4Anb2DWqYFlcvsNecrwiCPRlDOPIWIFLgsJ9gPKLwofuqEQ/4m7krXxntTpx
+         OkAQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@reprofietsaccu.nl header.s=default header.b=f5MU7iVd;
+       spf=pass (google.com: domain of info@reprofietsaccu.nl designates 185.104.31.254 as permitted sender) smtp.mailfrom=info@reprofietsaccu.nl
+Return-Path: <info@reprofietsaccu.nl>
+Received: from pmg03-out5.zxcs.nl (pmg03-out5.zxcs.nl. [185.104.31.254])
+        by mx.google.com with ESMTPS id j25-20020a170906095900b009938899a3besi9282217ejd.211.2023.07.14.10.14.26
+        for <marcoxmeijer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Jul 2023 10:14:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info@reprofietsaccu.nl designates 185.104.31.254 as permitted sender) client-ip=185.104.31.254;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@reprofietsaccu.nl header.s=default header.b=f5MU7iVd;
+       spf=pass (google.com: domain of info@reprofietsaccu.nl designates 185.104.31.254 as permitted sender) smtp.mailfrom=info@reprofietsaccu.nl
+Received: from pmg03.zxcs.nl (localhost.localdomain [127.0.0.1])
+	by pmg03.zxcs.nl (ZXCS) with ESMTP id E36B224073E
+	for <marcoxmeijer@gmail.com>; Fri, 14 Jul 2023 19:14:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=reprofietsaccu.nl; s=default; h=Content-Type:MIME-Version:Message-ID:Date:
+	Subject:In-Reply-To:References:To:From:Sender:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=MBwb/+B/B0ckwg1E9kelcN/im9NnIClGtaP7RcylX6c=; b=f5MU7iVd8tU2mFhVGx/bORyBim
+	oF+cTmuhupGStjQGw6tExgbzLfBnzFasaodkk992WgQCOp3PUHc1jb1mE/jBs3ewzLQ27Ob8pz7Nv
+	Hfliz5VNgCocjKxJJ38FIVtPS70/p22BKxu8LiasSY6mplOIehI/JB1SYT4vFxoeqcp/jqh6KozQ8
+	CqyAZ/IF1ecFOXskfNboW8/iuBubkqbQmmRUV/ODfD0UIDbLGIdZ2rhK7qTQJXMCMOfi8LqptnJLX
+	yMJmWZYbBDho0uWNjSOIiuv0pGeQ5cgF0b3RBxmHZsD4CGJqDEGro2DbNlo7793eYO5fnP6HscOsH
+	vxkRJwGg==;
+From: <info@reprofietsaccu.nl>
+To: "'Marco Meijer'" <marcoxmeijer@gmail.com>
+References: <CAF9eFEO2Z_FJN5rbxgoARmDHZZRAbghurFKjmYABzDdbcDT04Q@mail.gmail.com>
+In-Reply-To: <CAF9eFEO2Z_FJN5rbxgoARmDHZZRAbghurFKjmYABzDdbcDT04Q@mail.gmail.com>
+Subject: RE: Uw professionele mening over Bafang
+Date: Fri, 14 Jul 2023 19:14:22 +0200
+Message-ID: <000401d9b676$a298cf60$e7ca6e20$@reprofietsaccu.nl>
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_0005_01D9B687.6622D7E0"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJYKKExZeqdIRZaT778+8evuvG38q68m6RA
+Content-Language: nl
+X-From-Rewrite: unmodified, already matched
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0005_01D9B687.6622D7E0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_0006_01D9B687.6622FEF0"
+
+
+------=_NextPart_001_0006_01D9B687.6622FEF0
+Content-Type: text/plain;
+	charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hoi,
+
+=20
+
+Ja klopt.
+
+Is een bekende storing bij Bafang.
+
+Er is wel een oplossing voor maar kost je 135,-
+
+=20
+
+=20
+
+
+
+
+
+M.v.g.
+
+Ruud van Haren
+
+ <https://reprofietsaccu.nl/> https://reprofietsaccu.nl/
+
+ <https://accuzorg.nl/> https://accuzorg.nl/
+
+=20
+
+Giesbeek
+
+06-50567880
+
+=20
+
+E:  <mailto:info@deltecequipment.com> info@reprofietsaccu.nl
+
+This email contains confidential information belonging to the sender =
+which may also be privileged and is intended for use by the addressee =
+only.=20
+
+If you are not the intended recipient you are hereby notified that any =
+disclosure or use of the contents or attachment to this email is =
+strictly prohibited.
+
+If you received this email in error, please destroy/delete it and notify =
+us immediately.
+
+=20
+
+=20
+
+=20
+
+=20
+
+Van: Marco Meijer <marcoxmeijer@gmail.com>=20
+Verzonden: vrijdag 14 juli 2023 10:05
+Aan: info@reprofietsaccu.nl
+Onderwerp: Uw professionele mening over Bafang
+
+=20
+
+Goedendag,
+
+=20
+
+Ik heb momenteel een conflict met mijn fietsleverancier. De pin van mijn =
+Bafang oplader is afgebroken en in de accu blijven zitten, en de =
+verkoper wil geen garantie geven. Nu is mij via via ter ore gekomen dat =
+accureparateurs dit nog wel eens vaker zien gebeuren. Is dit iets dat =
+jullie kunnen bevestigen? Uw professionele mening zou mij enorm kunnen =
+helpen bij de kantonrechter bij wijze van getuigenverklaring/affadavit.
+
+=20
+
+Met vriendelijke groet en bij voorbaat dank,=20
+
+Marco Meijer=20
+
+
+------=_NextPart_001_0006_01D9B687.6622FEF0
+Content-Type: text/html;
+	charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta =
+name=3DGenerator content=3D"Microsoft Word 15 (filtered medium)"><!--[if =
+!mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+p.msonormal0, li.msonormal0, div.msonormal0
+	{mso-style-name:msonormal;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.E-mailStijl18
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DNL =
+link=3D"#0563C1" vlink=3D"#954F72"><div class=3DWordSection1><p =
+class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'>Hoi,<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span style=3D'mso-fareast-language:EN-US'>Ja =
+klopt.<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'>Is een bekende storing bij =
+Bafang.<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'>Er is wel een oplossing voor maar =
+kost je 135,-<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><img width=3D187 height=3D62 =
+style=3D'width:1.9479in;height:.6458in' id=3D"Afbeelding_x0020_1" =
+src=3D"cid:image003.jpg@01D9B687.6547BA20" alt=3D"logo-reprofietsaccu =
+final1 (002)"><o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><img width=3D187 height=3D71 =
+style=3D'width:1.9479in;height:.7395in' id=3D"Afbeelding_x0020_2" =
+src=3D"cid:image004.jpg@01D9B687.6547BA20" =
+alt=3DAccuzorg2><o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'>M.v.g.<o:p></o:p></span></p><p =
+class=3DMsoNormal><span style=3D'mso-fareast-language:EN-US'>Ruud van =
+Haren<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><a =
+href=3D"https://reprofietsaccu.nl/"><span =
+style=3D'color:#0563C1'>https://reprofietsaccu.nl/</span></a><o:p></o:p><=
+/span></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><a =
+href=3D"https://accuzorg.nl/"><span =
+style=3D'color:#0563C1'>https://accuzorg.nl/</span></a><o:p></o:p></span>=
+</p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'>Giesbeek<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'>06-50567880<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><i><span lang=3DDE =
+style=3D'font-size:8.0pt;font-family:"Arial",sans-serif;color:#1F497D;mso=
+-fareast-language:EN-GB'>E: </span></i><span lang=3DEN-GB =
+style=3D'font-size:8.0pt'><a =
+href=3D"mailto:info@deltecequipment.com"><span lang=3DDE =
+style=3D'font-family:"Arial",sans-serif;color:blue;mso-fareast-language:E=
+N-GB'>info@</span></a>reprofietsaccu.nl</span><span lang=3DEN-GB =
+style=3D'font-size:8.0pt;color:black;mso-fareast-language:EN-GB'><o:p></o=
+:p></span></p><p class=3DMsoNormal><span lang=3DEN-US =
+style=3D'font-size:8.0pt;font-family:"Arial",sans-serif;color:#333333;mso=
+-fareast-language:EN-GB'>This email contains confidential information =
+belonging to the sender which may also be privileged and is intended for =
+use by the addressee only. </span><span lang=3DEN-GB =
+style=3D'color:black;mso-fareast-language:EN-GB'><o:p></o:p></span></p><p=
+ class=3DMsoNormal><span lang=3DEN-US =
+style=3D'font-size:8.0pt;font-family:"Arial",sans-serif;color:#333333;mso=
+-fareast-language:EN-GB'>If you are not the intended recipient you are =
+hereby notified that any disclosure or use of the contents or attachment =
+to this email is strictly prohibited.</span><span lang=3DEN-GB =
+style=3D'color:black;mso-fareast-language:EN-GB'><o:p></o:p></span></p><p=
+ class=3DMsoNormal><span lang=3DEN-US =
+style=3D'font-size:8.0pt;font-family:"Arial",sans-serif;color:#333333;mso=
+-fareast-language:EN-GB'>If you received this email in error, please =
+destroy/delete it and notify us immediately.</span><span lang=3DEN-GB =
+style=3D'color:black;mso-fareast-language:EN-GB'><o:p></o:p></span></p><p=
+ class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'mso-fareast-language:EN-US'><o:p>&nbsp;</o:p></span></p><p =
+class=3DMsoNormal><b>Van:</b> Marco Meijer =
+&lt;marcoxmeijer@gmail.com&gt; <br><b>Verzonden:</b> vrijdag 14 juli =
+2023 10:05<br><b>Aan:</b> info@reprofietsaccu.nl<br><b>Onderwerp:</b> Uw =
+professionele mening over Bafang<o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><p =
+class=3DMsoNormal>Goedendag,<o:p></o:p></p><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>Ik heb momenteel een conflict met mijn =
+fietsleverancier. De pin van mijn Bafang oplader is afgebroken en in de =
+accu blijven zitten, en de verkoper wil geen garantie geven. Nu is mij =
+via via ter ore gekomen dat accureparateurs dit nog wel eens vaker zien =
+gebeuren. Is dit iets dat jullie kunnen bevestigen? Uw professionele =
+mening zou mij enorm kunnen helpen bij de kantonrechter bij wijze van =
+getuigenverklaring/affadavit.<o:p></o:p></p></div><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>Met vriendelijke groet en bij voorbaat =
+dank,&nbsp;<o:p></o:p></p></div><div><p class=3DMsoNormal>Marco =
+Meijer&nbsp;<o:p></o:p></p></div></div></div></body></html>
+------=_NextPart_001_0006_01D9B687.6622FEF0--
+
+------=_NextPart_000_0005_01D9B687.6622D7E0
+Content-Type: image/jpeg;
+	name="image003.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <image003.jpg@01D9B687.6547BA20>
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwkHBgoJCAkLCwoMDxkQDw4ODx4WFxIZJCAmJSMg
+IyIoLTkwKCo2KyIjMkQyNjs9QEBAJjBGS0U+Sjk/QD3/2wBDAQsLCw8NDx0QEB09KSMpPT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT3/wAARCAA+ALsDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2aiis
+TxFqF3pUthdW/wA9v5hjniwPnBHGD2ORx6k470pSUVdgbdFQWd5Bf2qXFrIJIn6EfyI7H2rJ8X3c
+9tooW1dkmlmVVZTg8fMR+IXH40pSUYuT2E3ZXJ7PVnvPEd9ZJt+z2sSDPdpCTu/ADA+ua1q4fwjf
+x3GvSTqw23ySuvuRIWA/Jj+VdxU0p88b+b/MUXdBRRRWhQUUUUAFFFFABRRRQAUUUUAFFFFABRRR
+QAUUUUAFFFFABWD4wjnbRTJC37uNgZ0IyGj6H3GDhsjkba3qRlDKVYAqRgg96UldWA8ssdV1DTri
+SWLdbzAjechopx6kDv8AkfwrQv8AxSNbt4IZrfybiCUOSrbkcEFcjuOWHB9etWtb8G3cDM+kgT25
+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
+RRRQB//Z
+
+------=_NextPart_000_0005_01D9B687.6622D7E0
+Content-Type: image/jpeg;
+	name="image004.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <image004.jpg@01D9B687.6547BA20>
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwkHBgoJCAkLCwoMDxkQDw4ODx4WFxIZJCAmJSMg
+IyIoLTkwKCo2KyIjMkQyNjs9QEBAJjBGS0U+Sjk/QD3/2wBDAQsLCw8NDx0QEB09KSMpPT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT3/wAARCABHALsDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2aiii
+gAoopKAFqCe9trZgtxcQxMRkB3Ckj8aw/Hl1PZ+F5ZbWeSGTzYxvjYqcFhnkV5ZPqN9csWnvbqRi
+u3LTMSR6dfc1EpqLscmIxkKElGSZ7tRXm/w+1S/vPEUkV1fXM8f2Zm2yylhncvOD9TXpFVGXMrm1
+Gsq0OdBRRRTNQooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAMXxN4gXw/YrNsV5GJwrEg
+EDqM+pyAPrnoDXlsPiPVLfVZtRhumS4nffIOqN6AqeCAOB3wK7H4kW+qXMdv5Nu0mnQje7R/Md/I
+yw64A7+5zXnYIIBByD3FYVJO54+YV6kZqMdLHXa743h1zwtJa3UJt7zzIz8uTG4DDJB7fQ/maXwh
+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
+FFFABRRRQAUUUUAf/9k=
+
+------=_NextPart_000_0005_01D9B687.6622D7E0--
+
+
