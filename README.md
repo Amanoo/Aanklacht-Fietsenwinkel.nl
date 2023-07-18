@@ -20,7 +20,7 @@ Inmiddels heb ik zelf een nieuwe accu en lader gekocht vanwege het gedrag van Fi
 
 ## Eis
 
-Mijn e-bike is mijn enige vervoersmiddel en daardoor een noodzaak. Ik kon daarom niet wachten tot Fietsenwinkel.nl het probleem zou oplossen. Vanwege het gedrag van Fietsenwinkel.nl ben ik geforceerd geweest om het probleem zelf op te lossen. Hierdoor heb ik kosten gemaakt ter hoogte van €598,29[^7][^8]. Mijn eis is dat ik voor dit bedrag word vergoed en zodoende schadevrij word gesteld. De oude accu en oplader mag Fietsenwinkel.nl houden of mogen ze aan mij teruggeven. De garantie op de accu en oplader zal hierna verlopen via
+Mijn e-bike is mijn enige vervoersmiddel en daardoor een noodzaak. Ik kon daarom niet wachten tot Fietsenwinkel.nl het probleem zou oplossen. Vanwege het gedrag van Fietsenwinkel.nl ben ik geforceerd geweest om het probleem zelf op te lossen. Hierdoor heb ik kosten gemaakt ter hoogte van €598,29[^7][^8]. Mijn eis is dat ik voor dit bedrag word vergoed en zodoende schadevrij word gesteld. De oude accu en oplader mag Fietsenwinkel.nl houden of mogen ze aan mij teruggeven. De garantie op de accu en oplader zal hierna verlopen via Fietsunie.
 
 [^1]: [Factuur](%5B1%5D%20Factuur%20Fietsenwinkel.nl/Factuur-35013.pdf)
 [^2]: [WhatsApp bericht](%5B2%5D%20WhatsApp%20bericht/Aanmelding%20fietsreparatie.jpg)
