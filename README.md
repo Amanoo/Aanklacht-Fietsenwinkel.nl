@@ -11,6 +11,6 @@ De claim van Fietsenwinkel.nl dat het niet uit zichzelf stuk gaat is onwaar. Uit
 ## Aanvullende details
 
 [^1]: Factuur
-[^2}: WhatsApp bericht
+[^2]: WhatsApp bericht
 [^3]: Emailcommunicatie met Fietsenwinkel.nl
 [^4]: Mails met reparateurs
