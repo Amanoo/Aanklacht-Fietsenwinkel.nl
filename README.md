@@ -22,11 +22,12 @@ Inmiddels heb ik zelf een nieuwe accu en lader gekocht vanwege het gedrag van Fi
 
 Mijn e-bike is mijn enige vervoersmiddel en daardoor een noodzaak. Ik kon daarom niet wachten tot Fietsenwinkel.nl het probleem zou oplossen. Vanwege het gedrag van Fietsenwinkel.nl ben ik geforceerd geweest om het probleem zelf op te lossen. Hierdoor heb ik kosten gemaakt ter hoogte van €598,29[^7][^8]. Mijn eis is dat ik voor dit bedrag word vergoed en zodoende schadevrij word gesteld. De oude accu en oplader mag Fietsenwinkel.nl houden of mogen ze aan mij teruggeven. De garantie op de accu en oplader zal hierna verlopen via
 
-[^1]: [Factuur]([1] Factuur Fietsenwinkel.nl/Factuur-35013.pdf)
-[^2]: [WhatsApp bericht]([2] WhatsApp bericht/Aanmelding fietsreparatie.jpg)
-[^3]: [Emailcommunicatie met Fietsenwinkel.nl]([3] Emailcommunicatie met Fietsenwinkel.nl/Formeel verzoek voor garantieservice met betrekking tot elektrische fietslader en accu.eml)
-[^4]: [Emailcommunicatie met reparateurs]([4] Emailcommunicatie met reparateurs/) + https://tweakers.net/nieuws/211702/vanmoof-sluit-tijdelijk-winkels-en-vraagt-uitstel-van-betaling-aan.html?showReaction=18945160#r_18945160
-[^5]: [Foto's van accu en oplader]([5] Foto's van accu en oplader)
-[^6]: [Foto's van fietsenstalling en oplaadstation]([6] Foto's van fietsenstalling en oplaadstation)
-[^7]: [Factuur nieuwe accu en oplader]([7] Factuur nieuwe accu en oplader/F-2023-05-1855.pdf)
-[^8]: [Bonnen van busritten]([8] Bonnen van busritten/)
+[^1]: [Factuur](%5B1%5D%20Factuur%20Fietsenwinkel.nl/Factuur-35013.pdf)
+[^2]: [WhatsApp bericht](%5B2%5D%20WhatsApp%20bericht/Aanmelding%20fietsreparatie.jpg)
+[^3]: [Emailcommunicatie met Fietsenwinkel.nl](%5B3%5D%20Emailcommunicatie%20met%20Fietsenwinkel.nl/Formeel%20verzoek%20voor%20garantieservice%20met%20betrekking%20tot%20elektrische%20fietslader%20en%20accu.eml)
+[^4]: [Emailcommunicatie met reparateurs](%5B4%5D%20Emailcommunicatie%20met%20reparateurs)\
+https://tweakers.net/nieuws/211702/vanmoof-sluit-tijdelijk-winkels-en-vraagt-uitstel-van-betaling-aan.html?showReaction=18945160#r_18945160
+[^5]: [Foto's van accu en oplader](%5B5%5D%20Foto's%20van%20accu%20en%20oplader)
+[^6]: [Foto's van fietsenstalling en oplaadstation](%5B6%5D%20Foto's%20van%20fietsenstalling%20en%20oplaadstation)
+[^7]: [Factuur nieuwe accu en oplader](%5B7%5D%20Factuur%20nieuwe%20accu%20en%20oplader/F-2023-05-1855.pdf)
+[^8]: [Bonnen van busritten](%5B8%5D%20Bonnen%20van%20busritten)
