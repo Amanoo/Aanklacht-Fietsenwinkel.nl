@@ -31,3 +31,4 @@ https://tweakers.net/nieuws/211702/vanmoof-sluit-tijdelijk-winkels-en-vraagt-uit
 [^6]: [Foto's van fietsenstalling en oplaadstation](%5B6%5D%20Foto's%20van%20fietsenstalling%20en%20oplaadstation)
 [^7]: [Factuur nieuwe accu en oplader](%5B7%5D%20Factuur%20nieuwe%20accu%20en%20oplader/F-2023-05-1855.pdf)
 [^8]: [Bonnen van busritten](%5B8%5D%20Bonnen%20van%20busritten)
+
